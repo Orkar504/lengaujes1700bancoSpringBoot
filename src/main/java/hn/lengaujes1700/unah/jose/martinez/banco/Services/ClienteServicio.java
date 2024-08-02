@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import hn.lengaujes1700.unah.jose.martinez.banco.Models.Cliente;
 import hn.lengaujes1700.unah.jose.martinez.banco.Models.Direccion;
+import hn.lengaujes1700.unah.jose.martinez.banco.Models.Producto;
 import hn.lengaujes1700.unah.jose.martinez.banco.Repositories.ClienteRepository;
 import hn.lengaujes1700.unah.jose.martinez.banco.Repositories.DireccionRepository;
+import hn.lengaujes1700.unah.jose.martinez.banco.Repositories.ProductoRepository;
 
 @Service
 /*Solo realiza llamados a la logica */
@@ -19,6 +21,9 @@ public class ClienteServicio {
 
     @Autowired
     private DireccionRepository direccionRepository;
+
+    @Autowired
+    private ProductoRepository productoRepository;
 
     public List<Cliente> getAllClientes()
     {
@@ -40,9 +45,24 @@ public class ClienteServicio {
             {
                 nvaDireccion.setCliente(nvocliente);
             }
-          return this.clienteRepository.save(nvocliente);
+          
         }
-        return null;
+
+        List<Producto> productos = nvocliente.getProducto();
+
+        if(productos !=null)
+        {
+            for(Producto producto : productos)
+            {
+                producto.setCliente(nvocliente);
+
+            }
+          
+           
+        }
+
+        return this.clienteRepository.save(nvocliente);
+
 
     }
 

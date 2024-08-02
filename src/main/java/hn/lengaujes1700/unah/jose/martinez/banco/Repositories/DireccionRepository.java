@@ -7,7 +7,7 @@ import hn.lengaujes1700.unah.jose.martinez.banco.Models.Direccion;
 
 /*El repositorio es para obtener, eliminar o verificar datos */
 @Repository
-/*Aqui va la logica */
+/*Aqui va la logica de los llamados a la base de datos etc.. */
 public interface DireccionRepository extends JpaRepository<Direccion,Integer> {
 
 
