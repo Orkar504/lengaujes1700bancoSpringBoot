@@ -35,10 +35,15 @@ private String calle;
  * en bidireccional
  */
 
+ 
 @JsonIgnore /*Evita la recursion infinita */
 @OneToOne
 @JoinColumn(name = "dni",referencedColumnName = "dni")
 private Cliente cliente;
+/*name hace referecia a la columna a la que le pertenece la llave foranea y 
+ * referencedColumnName representa la columna de la identidad a la que se realiza 
+ * la referencia
+ */
 
 /*
 No se realiza este campo porque realizaremos un mapeo

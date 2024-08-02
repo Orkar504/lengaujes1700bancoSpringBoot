@@ -1,5 +1,6 @@
 package hn.lengaujes1700.unah.jose.martinez.banco.Models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -23,6 +24,10 @@ private String telefono;
  * utilizamos mappedBy para demostrar que objetos
  * es el que esta mapeando 
  */
-@OneToOne(mappedBy = "cliente")
+
+ /*El cascade all permite insertar los otros objetos enviados por El Json 
+  * en la tabla y asi no debemos quitar el JSON ignore
+  */
+@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
 private Direccion direccion;
 }
