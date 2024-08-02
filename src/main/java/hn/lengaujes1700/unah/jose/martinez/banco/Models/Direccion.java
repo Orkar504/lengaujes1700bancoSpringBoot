@@ -35,7 +35,7 @@ private String calle;
  * en bidireccional
  */
 
- @JsonIgnore /*Evita la recursion infinita */
+@JsonIgnore /*Evita la recursion infinita */
 @OneToOne
 @JoinColumn(name = "dni",referencedColumnName = "dni")
 private Cliente cliente;
